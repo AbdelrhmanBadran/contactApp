@@ -1,0 +1,71 @@
+<div class="container position-relative ">
+  <p class="h2 text-dark bg-black bg-opacity-50 rounded-2 text-white d-flex justify-content-center align-items-center letter d-none" #letter></p>
+  <div class="row">
+    <div class="col-md-6 mx-auto p-1  border border-1 position-relative">
+      <div class="p-2 rounded-top bg-dark bg-opacity-25 position-sticky top-0 input-search">
+        <input type="text" class="form-control rounded-pill" [placeholder]="'Search through all '+ contactList.data.length +' Contact'" [(ngModel)]="value" >
+      </div>
+      <section class="position-relative ">
+        <main  *ngIf="value.length === 0">
+          <div class=" d-flex justify-content-between align-items-center px-3 bg-light">
+            <p class="fw-bolder mt-2">Add New Contacts</p>
+            <mat-icon routerLink="/contactForm" class="cursor">input</mat-icon>
+          </div>
+          <div class="px-3 bg-light">
+            <hr class="p-0 m-0">
+            <p class="fw-bold my-2">Recent Contact</p>
+          </div>
+          <div class="d-flex my-2 contact-container p-2" *ngFor="let contact of contactRecent.data" (click)="goToDetails(contact)">
+            <div class="p-3 bg-light ms-2 rounded-circle ">
+              <i class="fas text-dark  fa-user"></i>
+            </div>
+            <div class="d-flex flex-column  ms-2">
+              <h4 class="m-0 p-0">{{contact.firstName + ' ' + contact.lastName}}</h4>
+              <p class="m-0 p-0 text-muted email">{{contact.email}}</p>
+            </div>
+          </div>
+          <div *ngFor="let char of newArrway" class="">
+            <hr class="p-0 m-0">
+            <div class="p-1 px-3 bg-light">
+              <p class="fw-bold my-2 fs-6" #specLetter>{{char}}</p>
+            </div>
+            <div class="d-flex my-2 contact-container p-2" *ngFor="let contact of contactList.data |filter:char" (click)="goToDetails(contact)">
+              <div class="p-3 bg-light ms-2 rounded-circle ">
+                <i class="fas text-dark opacity-50 fa-user"></i>
+              </div>
+              <div class="d-flex flex-column ms-2">
+                <h4 class="m-0 p-0">{{contact.firstName + ' ' + contact.lastName}}</h4>
+                <p class="m-0 p-0 text-muted email">{{contact.email}}</p>
+                
+              </div>
+            </div>
+          </div>
+        </main>
+        <article class="position-absolute w-100 h-100 start-0 top-0" *ngIf="value.length > 0">
+        
+          <div class="d-flex contact-container p-2"  *ngFor="let contact of contactList.data |search:value "  (click)="goToDetails(contact)">
+            <div class="p-3 bg-light ms-2 rounded-circle ">
+              <i class="fas text-dark opacity-50 fa-user"></i>
+            </div>
+            <div class="d-flex flex-column ms-2" >
+              <h4 class="m-0 p-0">{{contact.firstName+ ' ' + contact.lastName}}</h4>
+              <p class="m-0 p-0 text-muted">{{contact.email}}</p>
+            </div>            
+          </div>
+        </article>
+        <aside class=" sidebar" *ngIf="value.length == 0" (mouseleave)="hideLetter()">
+          <div class=" position-sticky sidebar-sticky">
+            <div *ngFor="let char of chars" class=" d-flex justify-content-center" tappable  (mouseenter)="goToLetters(char)"  >
+              <span class="text-center w-100 text-muted font-sm">{{char}}</span>
+            </div>
+          </div>
+        </aside>
+      </section>
+      
+    </div>
+  
+  </div>
+  
+</div>
+
+

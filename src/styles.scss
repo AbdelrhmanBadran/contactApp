@@ -1,0 +1,87 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'ngx-toastr/toastr';
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.contact-container{
+  transition: 0.5s all;
+  cursor: pointer;
+}
+
+.contact-container:hover{
+  background-color: rgba(0, 0, 0, 0.124);
+}
+article{
+  background-color: white;
+}
+.sidebar{
+  position: fixed;
+  top: 120px;
+  right: calc(25% + 50px);
+  width: 50px;
+  bottom: 0;
+  // background-color: red ;
+}
+.sidebar-sticky{
+  top: 0px;
+}
+.font-sm{
+  font-size: 16px;
+  margin-bottom: 2px;
+  cursor: pointer;
+  transition: 0.5s all;
+
+}
+.font-sm:hover{
+  background-color: rgba(0, 0, 0, 0.124);
+  color: cornflowerblue;
+}
+@media screen and (max-width : 600px) {
+  .email{
+    font-size: 10px;
+  }
+  .sidebar{
+    top: 100px;
+    right:0;
+
+  }
+  .font-sm{
+    font-size: 10px;
+    margin-bottom: 0px;
+
+  }
+}
+.input-search{
+  z-index: 9999999999999999999999;
+}
+.cursor{
+  cursor: pointer;
+}
+
+body::-webkit-scrollbar {
+  width: 3px;
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+
+.letter{
+  width: 80px;
+  height: 80px;
+  position: fixed;
+  left: 50%;
+  top: 150px;
+  transform: translateX(-50%);
+  z-index: 9999999999999999999999999999999999999999;
+  
+}

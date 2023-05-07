@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mx-auto p-1  border border-1 position-relative min-vh-100">
+      <div class="py-5 d-flex bg-dark justify-content-center w-100 position-relative ">
+        <i class="fa-solid fa-right-to-bracket position-absolute top-0 end-0 me-3 mt-3 fs-5 text-white cursor" routerLink="/contactList"></i>
+        <i class="fas fa-user fa-6x border border-1 border-white p-5 rounded-circle text-white"></i>
+        <h5 class="text-white position-absolute bottom-0 fs-2 start-0 ps-3">{{specficContact[0].firstName +' '+ specficContact[0].lastName}}</h5>
+      </div>
+      <div class="p-5 d-flex align-items-center">
+        <i class="fa-solid fa-envelope pe-3"></i>
+        <p class="pt-2 email">{{specficContact[0].email}}</p>
+      </div>
+    </div>
+  </div>
+</div>
