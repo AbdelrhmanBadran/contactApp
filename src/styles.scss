@@ -83,7 +83,7 @@ body::-webkit-scrollbar-thumb {
   top: 150px;
   transform: translateX(-50%);
   z-index: 9999999999999999999999999999999999999999;
-  
+
 }
 .image{
   background-position: top   center;
@@ -91,5 +91,17 @@ body::-webkit-scrollbar-thumb {
   background-size: cover;
   width: 200px;
   height: 200px;
-  
+
 }
+
+.mdc-text-field:not(.mdc-text-field--disabled) .mdc-floating-label
+{
+  color: #00000094;
+}
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: #ECECEC;
+}
+.mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input {
+  color: #000 !important;
+}
+

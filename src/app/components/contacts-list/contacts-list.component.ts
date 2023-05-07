@@ -20,11 +20,15 @@ export class ContactsListComponent {
   spec:any[] = []
   newArrway:any[] = []
   value:any = ''
+  backGround:any = 'url(https://img.freepik.com/free-icon/user_318-159711.jpg)';
+  url:any = null;
 
   ngOnInit(): void {
 
+
     this.contactList = this._ContactService.contactData
     this.contactRecent = this._ContactService.contactRecent
+    console.log(this.contactList.data[0].imageUrl);
 
     this.contactList.data.forEach((contact:any) => {
       this.contact.push(contact?.firstName!)

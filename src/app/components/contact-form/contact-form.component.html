@@ -3,14 +3,53 @@
     <div class="col-md-6 mx-auto p-1 mt-4 border border-1">
       <h1 class="p-3 border-2 border-bottom border-info" >Add New Contact</h1>
       <div class="w-50 mx-auto">
-        <!-- <img [src]="url" width="200" height="200" class=" d-block mx-auto rounded-circle " alt=""> -->
         <div class="image  rounded-circle mx-auto" [style.background-image]="backGround"  >
-          
+
         </div>
         <br>
         <input type="file" id="image" #image (change)="getImage($event)" hidden>
         <label for="image" class="h2 text-muted text-center d-block mx-auto cursor">Add Photo</label>
       </div>
+      <div class="mt-5 px-3">
+        <form [formGroup]="contactForm" (ngSubmit)="addContact()">
+          <mat-form-field class="w-100">
+            <mat-label >First Name</mat-label>
+            <input matInput  formControlName="firstName">
+            <mat-error *ngIf="contactForm.get('firstName')?.getError('required')">
+              first name is required
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="w-100">
+            <mat-label >Last Name</mat-label>
+            <input matInput  formControlName="lastName">
+            <mat-error *ngIf="contactForm.get('lastName')?.getError('required')">
+              last name is required
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="w-100">
+            <mat-label >Telephone</mat-label>
+            <span matPrefix class="text-dark opacity-50 ms-2">+20 &nbsp;</span>
+            <input type="tel" matInput placeholder="01151753800" formControlName="tel" >
+            <mat-icon matSuffix>mode_edit</mat-icon>
+
+          </mat-form-field>
+          <mat-form-field class="w-100">
+            <mat-label >Email</mat-label>
+            <input type="email" matInput  placeholder="Ex. pat@example.com" formControlName="email">
+            <mat-error *ngIf="contactForm.get('email')?.getError('required') && !contactForm.get('email')?.getError('email')">
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="contactForm.get('email')?.getError('email')">
+              Email is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <div class="w-50 mt-4 mx-auto">
+            <button mat-raised-button  color="accent" class="text-white w-100 mx-auto d-block " type="submit">Add Contact</button>
+            <button mat-raised-button  color="primary" class="text-white w-100 mx-auto d-block mt-3" type="button" routerLink="/contactList">Cancel</button>
+          </div>
+        </form>
+      </div>
+
     </div>
   </div>
 </div>

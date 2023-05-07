@@ -16,8 +16,8 @@
             <p class="fw-bold my-2">Recent Contact</p>
           </div>
           <div class="d-flex my-2 contact-container p-2" *ngFor="let contact of contactRecent.data" (click)="goToDetails(contact)">
-            <div class="p-3 bg-light ms-2 rounded-circle ">
-              <i class="fas text-dark  fa-user"></i>
+            <div class=" ms-2 p-1 d-flex justify-content-center align-items-center rounded-circle" width="50" height="50">
+              <img [src]="contact.imageUrl == undefined ? 'https://img.freepik.com/free-icon/user_318-159711.jpg' : contact.imageUrl" alt="prodile pic" width="25" height="25">
             </div>
             <div class="d-flex flex-column  ms-2">
               <h4 class="m-0 p-0">{{contact.firstName + ' ' + contact.lastName}}</h4>
@@ -30,27 +30,27 @@
               <p class="fw-bold my-2 fs-6" #specLetter>{{char}}</p>
             </div>
             <div class="d-flex my-2 contact-container p-2" *ngFor="let contact of contactList.data |filter:char" (click)="goToDetails(contact)">
-              <div class="p-3 bg-light ms-2 rounded-circle ">
-                <i class="fas text-dark opacity-50 fa-user"></i>
+              <div class=" ms-2 p-1 d-flex justify-content-center align-items-center rounded-circle" width="50" height="50">
+                <img class="rounded-circle" [src]="contact.imageUrl == undefined ? 'https://img.freepik.com/free-icon/user_318-159711.jpg' : contact.imageUrl" alt="prodile pic" width="25" height="25">
               </div>
               <div class="d-flex flex-column ms-2">
                 <h4 class="m-0 p-0">{{contact.firstName + ' ' + contact.lastName}}</h4>
                 <p class="m-0 p-0 text-muted email">{{contact.email}}</p>
-                
+
               </div>
             </div>
           </div>
         </main>
         <article class="position-absolute w-100 h-100 start-0 top-0" *ngIf="value.length > 0">
-        
+
           <div class="d-flex contact-container p-2"  *ngFor="let contact of contactList.data |search:value "  (click)="goToDetails(contact)">
-            <div class="p-3 bg-light ms-2 rounded-circle ">
-              <i class="fas text-dark opacity-50 fa-user"></i>
+            <div class=" ms-2 p-1 d-flex justify-content-center align-items-center rounded-circle" width="50" height="50">
+              <img class="rounded-circle" [src]="contact.imageUrl == undefined ? 'https://img.freepik.com/free-icon/user_318-159711.jpg' : contact.imageUrl" alt="prodile pic" width="25" height="25">
             </div>
             <div class="d-flex flex-column ms-2" >
               <h4 class="m-0 p-0">{{contact.firstName+ ' ' + contact.lastName}}</h4>
               <p class="m-0 p-0 text-muted">{{contact.email}}</p>
-            </div>            
+            </div>
           </div>
         </article>
         <aside class=" sidebar" *ngIf="value.length == 0" (mouseleave)="hideLetter()">
@@ -61,11 +61,11 @@
           </div>
         </aside>
       </section>
-      
+
     </div>
-  
+
   </div>
-  
+
 </div>
 
 

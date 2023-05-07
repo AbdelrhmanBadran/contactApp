@@ -17,18 +17,19 @@ export class ContactDetailsComponent {
   ngOnInit(): void {
     this._ActivatedRoute.paramMap.subscribe({
       next:params=>{
-        this.contactEmail = params.get('contact')!        
+        this.contactEmail = params.get('contact')!
       }
     })
 
     this.specficContact = this._ContactService.contactData.data.filter((ele:any)=> ele.email === this.contactEmail)
     console.log(this.specficContact);
-    
-    
-    
-    
-    
-    
+    console.log(this.specficContact.imageUrl);
+
+
+
+
+
+
   }
-  
+
 }
