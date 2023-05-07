@@ -15,7 +15,6 @@ import { FilterPipe } from './pipe/filter.pipe';
 import {MatButtonModule} from '@angular/material/button';
 import { SearchPipe } from './pipe/search.pipe';
 import { LengthPipe } from './pipe/length.pipe';
-import { AlphabeticalScrollBarModule } from 'alphabetical-scroll-bar';
 import { ContactDetailsComponent } from './components/contact-details/contact-details.component';
 
 @NgModule({
@@ -37,9 +36,8 @@ import { ContactDetailsComponent } from './components/contact-details/contact-de
     FormsModule,
     MatIconModule,
     MatDividerModule,
-    MatButtonModule,
-    AlphabeticalScrollBarModule
-  ],
+    MatButtonModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
